@@ -3,19 +3,21 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
+import MagnetBtn from "./MagnetBtn";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   //scroll value
   const [scroll, setScroll] = useState(true);
-  const [scrollTop, setScrollTop] = useState(0);
   const [isOpen, setOpen] = useState(false);
-  const [navActive, setNavActive] = useState(false);
+  let pathName = usePathname();
+  console.log(pathName);
 
   const nav_links = [
-    { id: 1, name: "About", url: "about" },
-    { id: 2, name: "Projects", url: "project" },
-    { id: 3, name: "Skill", url: "skill" },
-    { id: 4, name: "Contact", url: "contact" },
+    { id: 1, name: "About", url: "/about" },
+    { id: 2, name: "Projects", url: "/project" },
+    { id: 3, name: "Skill", url: "/skill" },
+    { id: 4, name: "Contact", url: "/contact" },
   ];
 
   const scrollHandler = () => {
@@ -26,29 +28,12 @@ const Header = () => {
     }
   };
 
-  // window.addEventListener("scroll", scrollHandler);
-
-  // function scrollToTop() {
-  //   let scrollTop = document.documentElement.scrollTop;
-  //   scrollTop = 0;
-  //   setScrollTop(0);
-  // }
-
-  window.onscroll = function () {
-    scrollHandler();
-    scrollPoint();
-  };
-
-  function scrollPoint() {
-    let scrollTop = document.documentElement.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight;
-    let getclientHeight = document.documentElement.clientHeight;
-
-    let calcHeight = scrollHeight - getclientHeight;
-    let final = Math.round((scrollTop * 100) / calcHeight);
-    scrollTop = final;
-    setScrollTop(scrollTop);
-  }
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+    // window.onscroll = function () {
+    //   scrollHandler();
+    // };
+  });
 
   //Menu
   const [burger, setBurger] = useState(false);
@@ -56,6 +41,7 @@ const Header = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      console.log(clipPath);
       if (burger === true && clipPath < 150) {
         setClipPath((prev) => prev + 30);
       }
@@ -65,7 +51,7 @@ const Header = () => {
     }, 150);
 
     return () => clearInterval(interval);
-  }, [burger, clipPath]);
+  });
 
   return (
     <div
@@ -76,32 +62,29 @@ const Header = () => {
       } w-full`}
     >
       <div className=" container h-[90px] mx-auto px-[20px] md:px-[40px] w-full flex justify-between items-center opacity-70">
-        <Link href={"/"} className=" z-[200]">
-          <div className=" ms-[20px] sm:ms-[40px] content w-[200px] z-[200]">
-            <h1>Zip</h1>
-            <h1>Zip</h1>
-          </div>
-        </Link>
+        <MagnetBtn className="">
+          <Link href={"/"} className="">
+            <div className=" px-[20px] sm:px-[40px] py-5 content z-[200]">
+              <h1>Zip</h1>
+              <h1>Zip</h1>
+            </div>
+          </Link>
+        </MagnetBtn>
 
-        <div className=" hidden md:flex flex-row justify-end text-center align-middle">
-          <ul className=" mb-0 inline-flex no-underline list-none gap-7 pl-0">
-            {nav_links?.map((nav_link) => {
-              return (
-                <li
-                  key={nav_link?.id}
-                  className="inline-block align-middle nav_link"
+        <div className="hidden mb-0 md:flex flex-row justify-end text-center align-middle list-none gap-3">
+          {nav_links?.map((nav_link) => (
+            <div key={nav_link?.id} className=" px-3 ">
+              <MagnetBtn>
+                <div
+                  className={`nav_link ${
+                    pathName == nav_link?.url ? " active" : ""
+                  } no-underline py-5 px-2 cursor-pointer text-sm font-medium uppercase tracking-wider `}
                 >
-                  <Link
-                    href={nav_link?.url}
-                    className="group no-underline relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
-                  >
-                    {nav_link?.name}
-                    <span className="absolute left-0 top-auto bottom-5 inline-block h-px w-full origin-top-right scale-0 bg-primary align-middle transition-transform duration-500 group-hover:origin-top-left group-hover:scale-100"></span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+                  <Link href={nav_link?.url}>{nav_link?.name}</Link>
+                </div>
+              </MagnetBtn>
+            </div>
+          ))}
         </div>
 
         <div className="relative md:hidden">

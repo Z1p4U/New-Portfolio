@@ -72,6 +72,22 @@ body {
 }
 /* Nav Bar Icon End */
 
+/* Nav links start */
+.nav_link {
+  color: #efdcf9;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .nav_link {
+    font-size: 16px;
+  }
+}
+.nav_link:hover,
+.nav_link.active {
+  color: #8338ec;
+}
+/* Nav links end */
+
 /* burger start */
 @keyframes circle-in-top-right {
   from {
@@ -231,7 +247,7 @@ body {
 }
 
 /* burger end */
-
+/* 
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
   color: rgb(114 226 174 / var(--tw-text-opacity));
@@ -251,7 +267,7 @@ body {
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(131 56 236 / var(--tw-bg-opacity));
-}
+} */
 
 /* nav end */
 
