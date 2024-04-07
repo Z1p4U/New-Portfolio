@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { relative } from "path";
 import { MutableRefObject, useRef, useState } from "react";
 
 const MagnetBtn = ({ children }: any, className: any) => {
@@ -29,7 +28,7 @@ const MagnetBtn = ({ children }: any, className: any) => {
       onMouseLeave={reset}
       ref={ref}
       animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 150, damping: 10, mass: 0.5 }}
+      transition={{ type: "spring", stiffness: 120, damping: 8, mass: 0.1 }}
     >
       {children}
     </motion.div>

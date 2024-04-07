@@ -9,7 +9,8 @@ import { usePathname } from "next/navigation";
 const Header = () => {
   //scroll value
   const [scroll, setScroll] = useState(true);
-  const [isOpen, setOpen] = useState(false);
+  const [burger, setBurger] = useState(false);
+
   let pathName = usePathname();
   console.log(pathName);
 
@@ -35,93 +36,98 @@ const Header = () => {
     // };
   });
 
-  //Menu
-  const [burger, setBurger] = useState(false);
-  let [clipPath, setClipPath] = useState(0);
-
+  //disabling scroll when menu is active in mobile view
   useEffect(() => {
-    const interval = setInterval(() => {
-      console.log(clipPath);
-      if (burger === true && clipPath < 150) {
-        setClipPath((prev) => prev + 30);
-      }
-      if (burger === false && clipPath > 0) {
-        setClipPath((prev) => prev - 30);
-      }
-    }, 150);
-
-    return () => clearInterval(interval);
-  });
+    if (burger) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  }, [burger]);
 
   return (
     <div
       className={` ${
         scroll
-          ? "header top-0 left-0 z-50 h-auto w-full absolute"
-          : "header top-0 left-0 z-50 h-auto animate-slidedown w-full fixed border-b border-white border-opacity-20 bg-grey bg-opacity-80 backdrop-blur backdrop-filter"
-      } w-full`}
+          ? " absolute"
+          : " fixed nav_slide_down border-b border-white border-opacity-20 bg-opacity-80 backdrop-blur backdrop-filter"
+      } top-0 left-0 z-50 h-auto w-full`}
     >
-      <div className=" container h-[90px] mx-auto px-[20px] md:px-[40px] w-full flex justify-between items-center opacity-70">
-        <MagnetBtn className="">
-          <Link href={"/"} className="">
-            <div className=" px-[20px] sm:px-[40px] py-5 content z-[200]">
-              <h1>Zip</h1>
-              <h1>Zip</h1>
-            </div>
-          </Link>
-        </MagnetBtn>
+      <div className=" container h-[90px] mx-auto px-[20px] lg:px-[40px] w-full flex justify-between items-center">
+        <Link href={"/"} className="">
+          <div className=" px-[20px] sm:px-[40px] py-5 content z-[200]">
+            <h1>Zip</h1>
+            <h1>Zip</h1>
+          </div>
+        </Link>
 
-        <div className="hidden mb-0 md:flex flex-row justify-end text-center align-middle list-none gap-3">
+        <div className="hidden mb-0 md:flex flex-row justify-end text-center align-middle lg:gap-5">
           {nav_links?.map((nav_link) => (
             <div key={nav_link?.id} className=" px-3 ">
-              <MagnetBtn>
-                <div
-                  className={`nav_link ${
-                    pathName == nav_link?.url ? " active" : ""
-                  } no-underline py-5 px-2 cursor-pointer text-sm font-medium uppercase tracking-wider `}
-                >
-                  <Link href={nav_link?.url}>{nav_link?.name}</Link>
-                </div>
-              </MagnetBtn>
+              <Link href={nav_link?.url}>
+                <MagnetBtn>
+                  <div
+                    className={`nav_link ${
+                      pathName == nav_link?.url ? " active" : ""
+                    } no-underline py-7 px-0 lg:px-2 cursor-pointer text-sm font-medium uppercase tracking-wider `}
+                  >
+                    {nav_link?.name}
+                  </div>
+                </MagnetBtn>
+              </Link>
             </div>
           ))}
         </div>
 
-        <div className="relative md:hidden">
-          <button className=" burger " onClick={() => setBurger(!burger)}>
-            <Hamburger toggled={isOpen} toggle={setOpen} />
+        <div className=" md:hidden">
+          <button className=" burger ">
+            <Hamburger toggled={burger} toggle={() => setBurger(!burger)} />
           </button>
 
-          <div
-            className={burger ? "bg-clip-path" : "bg-clip-path active"}
-            style={{
-              clipPath: `circle(${clipPath}% at 92% 3rem)`,
-              transition: "clip-path 0.7s",
-              transitionTimingFunction:
-                "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-            }}
-          >
-            <ul className={burger ? "nav-items active" : "nav-items"}>
+          <div className={`bg-clip-path ${burger ? " active" : " "}`}>
+            <div
+              className={`flex flex-col justify-center align-middle items-center gap-5`}
+            >
+              <div
+                className={
+                  burger
+                    ? `ani_slide_down ani_delay_1`
+                    : `ani_slide_up ani_delay_1`
+                }
+              >
+                <Link
+                  href={"/"}
+                  onClick={() => setBurger(false)}
+                  className={`nav_link ${
+                    pathName == "/" ? " active" : " "
+                  } hover:no-underline `}
+                >
+                  Home
+                </Link>
+              </div>
               {nav_links?.map((nav_link) => {
                 return (
-                  <li
+                  <div
                     key={nav_link?.id}
                     className={
                       burger
-                        ? `anniSlideDown  ani_delay_${nav_link?.id}`
-                        : `anniSlideUp ani_delay_${nav_link?.id}`
+                        ? `ani_slide_down ani_delay_${nav_link?.id + 1}`
+                        : `ani_slide_up ani_delay_${nav_link?.id + 1}`
                     }
                   >
                     <Link
                       href={nav_link?.url}
-                      className=" hover:no-underline hover:text-[#5c5c5c]"
+                      onClick={() => setBurger(false)}
+                      className={`nav_link ${
+                        pathName == nav_link?.url ? " active" : " "
+                      } hover:no-underline `}
                     >
                       {nav_link?.name}
                     </Link>
-                  </li>
+                  </div>
                 );
               })}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
