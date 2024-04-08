@@ -18,6 +18,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark')
+              } else {
+                document.documentElement.classList.remove('dark')
+              }
+        `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <div className=" fixed left-0 top-0 -z-50 flex h-screen w-full justify-around">
           <span className="border-r border-white border-opacity-5"></span>

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import MagnetBtn from "./MagnetBtn";
 import { usePathname } from "next/navigation";
+import DarkModeBtn from "./DarkModeBtn";
 
 const Header = () => {
   //scroll value
@@ -77,6 +78,7 @@ const Header = () => {
               </Link>
             </div>
           ))}
+          <DarkModeBtn />
         </div>
 
         <div className=" md:hidden">
