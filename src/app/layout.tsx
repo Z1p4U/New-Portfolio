@@ -11,6 +11,33 @@ export const metadata: Metadata = {
   description: "Personal portfolio page for me",
 };
 
+const myArray = [
+  "circle",
+  "x-shape",
+  "circle",
+  "x-shape",
+  "circle",
+  "x-shape",
+  "circle",
+  "x-shape",
+  "circle",
+  "x-shape",
+  "circle",
+  "x-shape",
+  // "circle",
+  // "x-shape",
+  // "circle",
+  // "x-shape",
+  // "circle",
+  // "x-shape",
+  // "circle",
+  // "x-shape",
+  // "circle",
+  // "x-shape",
+  // "circle",
+  // "x-shape",
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,26 +45,43 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark')
-              } else {
-                document.documentElement.classList.remove('dark')
-              }
-        `,
-          }}
-        />
-      </head>
       <body className={inter.className}>
-        <div className=" fixed left-0 top-0 -z-50 flex h-screen w-full justify-around">
-          <span className="border-r border-white border-opacity-5"></span>
-          <span className="border-r border-white border-opacity-5"></span>
-          <span className="border-r border-white border-opacity-5"></span>
-          <span className="border-r border-white border-opacity-5"></span>
-          <span className="border-r border-white border-opacity-5"></span>
+        <div className="lines">
+          <div className="line-1">
+            <div className="shapes">
+              {myArray.map((shape, index) => (
+                <div key={index} className={shape}></div>
+              ))}
+            </div>
+          </div>
+          <div className="line-2">
+            <div className="shapes">
+              {myArray.map((shape, index) => (
+                <div key={index} className={shape}></div>
+              ))}
+            </div>
+          </div>
+          <div className="line-3">
+            <div className="shapes">
+              {myArray.map((shape, index) => (
+                <div key={index} className={shape}></div>
+              ))}
+            </div>
+          </div>
+          <div className="line-4">
+            <div className="shapes">
+              {myArray.map((shape, index) => (
+                <div key={index} className={shape}></div>
+              ))}
+            </div>
+          </div>
+          <div className="line-5 hidden sm:block">
+            <div className="shapes">
+              {myArray.map((shape, index) => (
+                <div key={index} className={shape}></div>
+              ))}
+            </div>
+          </div>
         </div>
         <Header />
         {children}

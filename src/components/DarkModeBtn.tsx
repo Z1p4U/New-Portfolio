@@ -12,10 +12,8 @@ function App() {
   React.useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
-      document.body.style.backgroundColor = "#0f172a";
     } else {
       document.documentElement.classList.remove("dark");
-      document.body.style.backgroundColor = "#efdcf9";
     }
   }, [darkMode]);
 
