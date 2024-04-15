@@ -8,7 +8,6 @@ function App() {
     setDarkMode(!darkMode);
   }
 
-  // Apply theme when darkMode changes
   React.useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -18,7 +17,7 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className=" bg-purple-950 px-5 py-3">
+    <div className=" ">
       <button onClick={toggleDarkMode}>
         {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
       </button>
