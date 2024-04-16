@@ -18,9 +18,7 @@ function App() {
 
   return (
     <div className=" ">
-      <button onClick={toggleDarkMode}>
-        {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      </button>
+      <button onClick={toggleDarkMode}>{darkMode ? "Light" : "Dark"}</button>
     </div>
   );
 }

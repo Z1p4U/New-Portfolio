@@ -28,6 +28,70 @@ body {
   height: 3000px;
 }
 
+/* Button Start */
+
+.btn,
+.btn > * {
+  position: relative;
+}
+
+.btn {
+  display: inline-block;
+  height: auto;
+  min-height: 0;
+  width: auto;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  border-width: 0;
+  background-color: rgb(131 56 236 / 1);
+  padding: 0.625rem 1.25rem;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: rgb(15 23 42 / 1);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
+}
+
+.btn:hover:after {
+  transform-origin: top;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.btn:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  transform-origin: bottom;
+  --tw-scale-y: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  background-color: #ffffff;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
+}
+
+.btn > * {
+  z-index: 10;
+  color: inherit;
+  transition-property: none;
+}
+/* Button End */
+
 /******************** Navigation Bar Start ********************/
 
 /* Nav Bar Icon Start */
@@ -234,7 +298,6 @@ body {
   width: 100%;
   height: 100vh;
   background-color: #131313fa;
-  /* background-color: #0f172afa; */
   opacity: 90%;
   z-index: 100;
   display: flex;
@@ -263,7 +326,7 @@ body {
   height: 100%;
   display: flex;
   justify-content: space-evenly;
-  z-index: -100;
+  z-index: -1000;
   pointer-events: none;
 }
 
@@ -329,6 +392,15 @@ body {
   background-color: var(--color-border);
   border-radius: 5px;
 }
+
+.bg-primary {
+  background-color: #8338ec;
+}
+
+.bg-primary-dim {
+  background-color: #8338ec30;
+}
+
 /* Body Background End */
 
 /* Hero Section Start */
@@ -384,3 +456,87 @@ body {
 }
 
 /* Hero Section End */
+
+/* About Section start */
+
+.fix_image > span {
+  vertical-align: middle;
+}
+
+.border-10 {
+  border-width: 10px;
+}
+
+.border-primary {
+  --tw-border-opacity: 1;
+  border-color: #8338ec15;
+}
+
+@keyframes title_divider {
+  0% {
+    transform: translateX(-6px);
+  }
+
+  100% {
+    transform: translateX(128px);
+  }
+}
+
+.animate-leftToRight {
+  -webkit-animation: title_divider 3s ease-in-out infinite;
+  animation: title_divider 3s ease-in-out infinite;
+}
+
+@keyframes ledgerLeftRight {
+  0% {
+    left: -40px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes ledgerRightLeft {
+  0% {
+    right: -40px;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes ledgerBottomTop {
+  0% {
+    bottom: -40px;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+@keyframes ledgerTopBottom {
+  0% {
+    top: -40px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.animate-ledgerLeftRight {
+  animation: ledgerLeftRight 3s ease-in-out infinite;
+}
+
+.animate-ledgerRightLeft {
+  animation: ledgerRightLeft 3s ease-in-out infinite;
+}
+
+.animate-ledgerBottomTop {
+  animation: ledgerBottomTop 3s ease-in-out infinite;
+}
+
+.animate-ledgerTopBottom {
+  animation: ledgerTopBottom 3s ease-in-out infinite;
+}
+
+/* About Section end */
