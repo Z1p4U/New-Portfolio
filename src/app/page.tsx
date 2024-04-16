@@ -16,11 +16,11 @@ const page = () => {
   return (
     <>
       <div
-        className=" container mx-auto px-[20px] lg:px-[40px] min-h-screen pt-[7rem] md:pt-[9.5rem]"
+        className=" container mx-auto px-[20px] lg:px-[40px] min-h-screen pt-[7rem] md:pt-[6.5rem] lg:pt-[9.5rem]"
         id="hero-section"
       >
-        <div className=" grid grid-cols-12 grid-rows-2">
-          <div className=" row-start-2 row-span-1 md:row-start-1 md:row-span-2 col-start-1 col-span-12 md:col-span-7 ">
+        <div className=" grid grid-cols-12 gap-5 grid-rows-2">
+          <div className=" row-start-2 row-span-1 md:row-start-1 md:row-span-2 col-start-1 col-span-12 md:col-span-7 flex flex-col justify-center align-middle">
             <div className=" hidden mb-8 text-[#bebebe] text-xs lg:text-sm align-middle md:grid grid-cols-12">
               <div className=" col-start-1 col-span-9 lg:col-span-7 mb-2">
                 C R A F T I N G &nbsp;&nbsp; E X P E R I E N C E S
@@ -81,7 +81,7 @@ const page = () => {
             </div>
 
             <div className=" mt-8 md:me-5">
-              <p className=" text-[#bebebe] text-sm leading-6 tracking-wide md:leading-7 text-start">
+              <p className=" text-[#bebebe] text-sm text-justify leading-6 tracking-wide md:leading-7">
                 Welcome to my portfolio! I am a passionate and dedicated web
                 developer with a focus on crafting impactful web experiences.
                 <span className="hidden lg:inline">
@@ -157,14 +157,15 @@ const page = () => {
             </div>
           </div>
           <div className="row-start-1 row-span-1 md:row-start-1 md:row-span-2 col-start-1 md:col-start-8 col-span-12 md:col-span-5 flex justify-center align-middle items-center">
-            <Image
+            <div className="pf_blob"></div>
+            {/* <Image
               src={"/aaa.png"}
               loading="lazy"
               width={400}
               height={400}
               alt="mypic"
               className="rounded-full"
-            />
+            /> */}
           </div>
         </div>
         <Link

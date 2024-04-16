@@ -330,3 +330,57 @@ body {
   border-radius: 5px;
 }
 /* Body Background End */
+
+/* Hero Section Start */
+
+.pf_blob {
+  background-image: url("/aaa.png");
+  background-size: cover;
+  background-position: center;
+  width: 280px;
+  height: 280px;
+  box-shadow: 20px 5px 5px #00000033;
+  animation: blob 5s ease-in-out infinite;
+}
+
+@media (min-width: 542px) {
+  .pf_blob {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 768px) {
+  .pf_blob {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .pf_blob {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pf_blob {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@keyframes blob {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+/* Hero Section End */
