@@ -15,12 +15,13 @@ import Link from "next/link";
 const page = () => {
   return (
     <>
+      {/* Hero Section Start */}
       <div
-        className=" container mx-auto px-[20px] lg:px-[40px] min-h-screen pt-[5rem] md:pt-[6.5rem] lg:pt-[9.5rem]"
+        className=" container mx-auto px-[20px] lg:px-[40px] min-h-screen pt-[9.5rem]"
         id="hero-section"
       >
-        <div className=" grid grid-cols-12 gap-5 grid-rows-2">
-          <div className=" row-start-2 row-span-1 md:row-start-1 md:row-span-2 col-start-1 col-span-12 md:col-span-7 flex flex-col justify-center align-middle">
+        <div className="flex flex-col-reverse md:grid grid-cols-12 gap-[4.5rem] md:gap-5">
+          <div className=" md:col-span-7 flex flex-col justify-center align-middle">
             <div className=" hidden mb-8 text-[#bebebe] text-xs lg:text-sm align-middle md:grid grid-cols-12">
               <div className=" col-start-1 col-span-9 lg:col-span-7 mb-2">
                 C R A F T I N G &nbsp;&nbsp; E X P E R I E N C E S
@@ -30,9 +31,9 @@ const page = () => {
               </div>
             </div>
 
-            <div className=" text-5xl text-start md:text-6xl font-bold text-[#bebebe] ">
+            <div className=" text-[40px] text-start md:text-6xl font-bold text-[#bebebe] ">
               <h1>Hi!</h1>
-              <h1 className=" inline-block">I am</h1>
+              <h1 className=" inline-block">I&apos;m</h1>
               <span className=" text-[#8338ec]">
                 {" "}
                 <p className="wow animate__fadeInRight inline-block">
@@ -153,7 +154,7 @@ const page = () => {
               </ul>
             </div>
           </div>
-          <div className="row-start-1 row-span-1 md:row-start-1 md:row-span-2 col-start-1 md:col-start-8 col-span-12 md:col-span-5 flex justify-center align-middle items-center">
+          <div className="md:col-span-5 flex justify-center align-middle items-center">
             <div className="pf_blob"></div>
             {/* <Image
               src={"/aaa.png"}
@@ -166,8 +167,7 @@ const page = () => {
           </div>
         </div>
         <Link
-          href={"#aaaa"}
-          scroll={true}
+          href={"#about"}
           className="hover:text-[#bebebe] hover:no-underline focus:no-underline transition duration-500"
         >
           <div className=" text-center cursor-pointer flex justify-center gap-2 align-middle items-center mt-10">
@@ -178,13 +178,15 @@ const page = () => {
           </div>
         </Link>
       </div>
+      {/* Hero Section End */}
 
+      {/* About Section Start */}
       <div
         id="about"
-        className=" container mx-auto px-[20px] lg:px-[40px] min-h-screen pt-[3rem] about-section"
+        className=" container mx-auto px-[20px] lg:px-[40px] min-h-screen pt-[3rem] about-section flex flex-col justify-center items-center align-middle"
       >
-        <div className="relative py-10 text-center overflow-hidden">
-          <h2 className="text-center text-[#bebebe] text-sm lg:text-2xl relative z-10 mb-0 uppercase font-semibold">
+        <div className="relative pt-3 md:pt-5 lg:pt-10 pb-10 text-center overflow-hidden w-full">
+          <h2 className="text-center text-[#bebebe] md:text-lg lg:text-2xl relative z-10 mb-0 uppercase font-semibold">
             A B O U T &nbsp;&nbsp; <span className="text-[#8338ec] ">M E</span>
           </h2>
 
@@ -199,7 +201,7 @@ const page = () => {
           </span>
         </div>
 
-        <div className=" grid grid-cols-2 items-center gap-16">
+        <div className=" grid grid-cols-2 items-center gap-12 md:gap-16">
           <div className=" col-span-2 lg:col-span-1">
             <div className="about-image overflow-hidden">
               <div className="about-image-inner fix_image relative border-10 border-primary border-opacity-20">
@@ -232,7 +234,7 @@ const page = () => {
               className="about-content"
               // style={{ opacity: 1, transform: "none" }}
             >
-              <div className=" text-[#bebebe] text-lg text-justify">
+              <div className=" text-[#bebebe] text-base md:text-lg text-justify">
                 My full name is{" "}
                 <span className=" text-[#8338ec]">Thant Zin Htet</span>. I am
                 Burmese and I was born and raised in Myanmar. I am eager to
@@ -252,7 +254,7 @@ const page = () => {
               <a
                 href=""
                 download={""}
-                className="btn download mt-3 hover:no-underline hover:text-black"
+                className="btn download mt-10 md:mt-3 hover:no-underline hover:text-black"
               >
                 <span>Download my Resume</span>
               </a>
@@ -260,6 +262,30 @@ const page = () => {
           </div>
         </div>
       </div>
+      {/* About Section End */}
+
+      {/* Skill Section Start */}
+      <div
+        id="skill"
+        className="skill-section container mx-auto px-[20px] lg:px-[40px] min-h-screen pt-[3rem] skill-section flex flex-col justify-center align-middle items-center"
+      >
+        <div className="relative pt-3 md:pt-5 lg:pt-10 pb-10 text-center overflow-hidden w-full">
+          <h2 className="text-center text-[#bebebe] text-sm md:text-lg lg:text-2xl relative z-10 mb-0 uppercase font-semibold">
+            <span className="text-[#8338ec] ">M y</span>&nbsp;&nbsp; s k i l l s
+          </h2>
+
+          <span className="relative z-10 inline-block h-1.5 w-32 overflow-hidden rounded-full bg-primary-dim ">
+            <span className="absolute left-0 top-0 inline-block h-full w-2 animate-leftToRight rounded-full bg-primary"></span>
+          </span>
+          <span
+            className="pointer-events-none absolute left-1/2 top-0 z-0 -translate-x-1/2 transform text-5xl md:text-6xl lg:text-9xl font-bold uppercase text-heading opacity-5"
+            style={{ willChange: "transform" }}
+          >
+            Skills
+          </span>
+        </div>
+      </div>
+      {/* Skill Section End */}
     </>
   );
 };
