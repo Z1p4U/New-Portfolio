@@ -11,12 +11,12 @@ const SkillSection = () => {
     { id: 3, name: "Java Script", x: "26vw", y: "4vw" },
     { id: 4, name: "Bootstrap", x: "0vw", y: "6.5vw" },
     { id: 5, name: "SASS", x: "-5vw", y: "13.4vw" },
-    { id: 6, name: "Tailwind", x: "-20vw", y: "-10vw" },
+    { id: 6, name: "Tailwind", x: "-20vw", y: "-12vw" },
     { id: 7, name: "ReactJS", x: "15vw", y: "-12vw" },
     { id: 8, name: "NextJS", x: "32vw", y: "-5vw" },
     { id: 9, name: "PHP", x: "0vw", y: "-17.3vw" },
     { id: 10, name: "Laravel", x: "-25vw", y: "12vw" },
-    { id: 11, name: "MySQL", x: "-30vw", y: "-7vw" },
+    { id: 11, name: "MySQL", x: "-32vw", y: "-5vw" },
     { id: 12, name: "Github", x: "18vw", y: "15vw" },
   ];
 
@@ -44,7 +44,7 @@ const SkillSection = () => {
 
         <div className=" w-full h-[85vh] relative flex items-center justify-center rounded-full bg-circularDark">
           <motion.div
-            className=" flex items-center justify-center rounded-full font-semibold bg-[#8338ec] text-[#bebebe] py-5 px-8 cursor-pointer shadow-md absolute"
+            className=" flex items-center justify-center rounded-full font-semibold bg-transparent md:bg-[#8338ec] text-[#bebebe] p-2 sm:p-4 md:px-6 md:py-3 lg:px-8 lg:py-4 cursor-pointer shadow-md absolute text-xs md:text-base"
             whileHover={{ scale: 1.05 }}
           >
             Web
