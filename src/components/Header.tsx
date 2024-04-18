@@ -13,7 +13,7 @@ const Header = () => {
   const [burger, setBurger] = useState(false);
 
   let pathName = usePathname();
-  console.log(pathName);
+  // console.log(pathName);
 
   const nav_links = [
     { id: 1, name: "About", url: "/about" },
