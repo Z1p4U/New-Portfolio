@@ -9,8 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        circularDark:
+        circularDarkLg:
           " repeating-radial-gradient(#8338ec 2px, transparent 5px , transparent 100px);",
+        circularDarkMd:
+          " repeating-radial-gradient(#8338ec 2px, transparent 5px , transparent 50px);",
+        circularDarkSm:
+          " repeating-radial-gradient(#8338ec 2px, transparent 5px , transparent 30px);",
       },
     },
   },

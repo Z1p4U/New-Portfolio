@@ -42,7 +42,7 @@ const SkillSection = () => {
           </span>
         </div>
 
-        <div className=" w-full h-[85vh] relative flex items-center justify-center rounded-full bg-circularDark">
+        <div className=" w-full h-[50vh] sm:h-[85vh] relative flex items-center justify-center rounded-full bg-circularDarkSm  sm:bg-circularDarkMd md:bg-circularDarkLg">
           <motion.div
             className=" flex items-center justify-center rounded-full font-semibold bg-transparent md:bg-[#8338ec] text-[#bebebe] p-2 sm:p-4 md:px-6 md:py-3 lg:px-8 lg:py-4 cursor-pointer shadow-md absolute text-xs md:text-base"
             whileHover={{ scale: 1.05 }}
