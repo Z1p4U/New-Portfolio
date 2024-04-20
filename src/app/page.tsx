@@ -12,7 +12,7 @@ const page = () => {
 
       <AboutSection />
 
-      <SkillSection />
+      {/* <SkillSection /> */}
 
       <ProjectSection />
     </>

@@ -3,6 +3,14 @@
 import React from "react";
 
 const ProjectSection = () => {
+  const projects = [
+    {
+      id: 1,
+      url: "https://yolo-static.netlify.app",
+      git: "https://github.com/Z1p4U/Yolo-Static.git",
+      img: "",
+    },
+  ];
   return (
     <>
       <div

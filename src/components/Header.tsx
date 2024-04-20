@@ -70,7 +70,7 @@ const Header = () => {
                   <div
                     className={`nav_link ${
                       pathName == nav_link?.url ? " active" : ""
-                    } no-underline py-7 px-0 lg:px-2 cursor-pointer text-sm font-medium uppercase tracking-wider `}
+                    } no-underline py-5 px-0 lg:px-2 cursor-pointer text-sm font-medium uppercase tracking-wider `}
                   >
                     {nav_link?.name}
                   </div>

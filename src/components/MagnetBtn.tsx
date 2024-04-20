@@ -12,7 +12,7 @@ const MagnetBtn = ({ children }: any, className: any) => {
     const { width, height, left, top } = ref.current.getBoundingClientRect();
     const positionX = clientX - (left + width / 2);
     const positionY = clientY - (top + height / 2);
-    setPosition({ x: positionX, y: positionY });
+    setPosition({ x: positionX * 0.5, y: positionY * 0.5 });
   };
 
   const reset = () => {

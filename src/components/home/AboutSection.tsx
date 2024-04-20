@@ -51,12 +51,12 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <div className="col-span-2 lg:col-span-1 text-center text-[#bebebe]">
+          <div className="col-span-2 lg:col-span-1 text-center md:text-justify text-[#bebebe]">
             <div
               className="about-content"
               // style={{ opacity: 1, transform: "none" }}
             >
-              <div className=" text-[#bebebe] text-base md:text-lg text-justify">
+              <div className=" text-[#bebebe] text-base md:text-lg  text-center md:text-justify ">
                 My full name is{" "}
                 <span className=" text-[#8338ec]">Thant Zin Htet</span>. I am
                 Burmese and I was born and raised in Myanmar. I am eager to

@@ -80,7 +80,7 @@ const HeroSection = () => {
             </div>
 
             <div className=" mt-8 md:me-5">
-              <p className=" text-[#bebebe] text-sm text-justify leading-6 md:tracking-wide md:leading-7">
+              <p className=" text-[#bebebe] text-sm text-center md:text-justify leading-6 md:tracking-wide md:leading-7">
                 Welcome to my portfolio! I am a passionate and dedicated web
                 developer with a focus on crafting impactful web experiences.
                 <span className="hidden lg:inline">
