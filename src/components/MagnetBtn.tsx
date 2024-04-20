@@ -1,38 +1,50 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { MutableRefObject, useRef, useState } from "react";
+import gsap from "gsap";
+import React, { MutableRefObject, useEffect, useRef } from "react";
 
 const MagnetBtn = ({ children }: any, className: any) => {
   const ref = useRef() as MutableRefObject<HTMLDivElement>;
-  const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const handleMouse = (e: any) => {
-    const { clientX, clientY } = e;
-    const { width, height, left, top } = ref.current.getBoundingClientRect();
-    const positionX = clientX - (left + width / 2);
-    const positionY = clientY - (top + height / 2);
-    setPosition({ x: positionX * 0.5, y: positionY * 0.5 });
-  };
+  useEffect(() => {
+    const xTo = gsap.quickTo(ref.current, "x", {
+      duration: 1,
+      ease: "elastic.out(1,0.3)",
+    });
+    const yTo = gsap.quickTo(ref.current, "y", {
+      duration: 1,
+      ease: "elastic.out(1,0.3)",
+    });
+    const currentRef = ref.current;
 
-  const reset = () => {
-    setPosition({ x: 0, y: 0 });
-  };
+    const mouseMove = (e: any) => {
+      const { clientX, clientY } = e;
+      const { width, height, left, top } = currentRef.getBoundingClientRect();
+      const positionX = clientX - (left + width / 2);
+      const positionY = clientY - (top + height / 2);
 
-  const { x, y } = position;
+      xTo(positionX);
+      yTo(positionY);
 
-  return (
-    <motion.div
-      style={className}
-      onMouseMove={handleMouse}
-      onMouseLeave={reset}
-      ref={ref}
-      animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-    >
-      {children}
-    </motion.div>
-  );
+      // xTo(positionX * 0.5);
+      // yTo(positionY * 0.5);
+    };
+
+    const mouseLeave = () => {
+      xTo(0);
+      yTo(0);
+    };
+
+    currentRef.addEventListener("mousemove", mouseMove);
+    currentRef.addEventListener("mouseleave", mouseLeave);
+
+    return () => {
+      currentRef.removeEventListener("mousemove", mouseMove);
+      currentRef.removeEventListener("mouseleave", mouseLeave);
+    };
+  }, []);
+
+  return React.cloneElement(children, { ref });
 };
 
 export default MagnetBtn;
