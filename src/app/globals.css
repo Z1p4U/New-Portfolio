@@ -5,6 +5,7 @@
 :root {
   --color-border: #424242;
   --color-bg: #131313;
+  --font-mont: "__Montserrat_cce811", "__Montserrat_Fallback_cce811";
 }
 
 * {
@@ -13,6 +14,10 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-family: var(--font-mont), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 }
 
 html {
@@ -44,7 +49,7 @@ body {
   overflow: hidden;
   border-radius: 0.25rem;
   border-width: 0;
-  background-color: rgb(131 56 236 / 1);
+  background-color: #8338ec;
   padding: 0.625rem 1.25rem;
   text-align: center;
   vertical-align: middle;
@@ -53,7 +58,7 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.025em;
-  color: rgb(15 23 42 / 1);
+  color: #0f172a;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.5s;
